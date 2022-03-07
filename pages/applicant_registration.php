@@ -22,5 +22,9 @@
       </div>	
    </div>
 
+   <form action="../PHP/logout.php" method="get">
+      <button type="submit">Logout</button>
+   </form>
+
    </body>
 </html>
