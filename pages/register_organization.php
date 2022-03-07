@@ -36,11 +36,11 @@
       <div>
                
          <form action="../PHP/register_orgRep.php" method = "post">
-            <label>Organization ID  :</label><input type = "text" name = "orgID" class = "box"/><br /><br />
+            <label>Organization ID  :</label><input type = "number" name = "orgID" class = "box"/><br /><br />
             <label>Username  :</label><input type = "text" name = "username" class = "box"/><br /><br />
             <label>Fullname  :</label><input type = "text" name = "fullname" class = "box"/><br /><br />
-            <label>Mobile No.  :</label><input type = "text" name = "mobileNo" class = "box"/><br /><br />
-            <label>Job Title  :</label><input type = "password" name = "jobtitle" class = "box" /><br/><br />
+            <label>Mobile No.  :</label><input type = "number" name = "mobileNo" class = "box"/><br /><br />
+            <label>Job Title  :</label><input type = "text" name = "jobtitle" class = "box" /><br/><br />
             <input type = "submit" value = " Submit "/><br />
          </form>
                		
