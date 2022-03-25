@@ -11,7 +11,7 @@ $username = validate($_POST['username']);
 $password = validate($_POST['password']);
 
 if ($username  == "admin" && $password == "admin"){
-    header("Location: http://localhost/Helping-Hand/pages/index.php");
+    header("Location: http://localhost/Helping-Hand/pages/registerOrgRep.php");
     exit();
 
 }else{
