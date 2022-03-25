@@ -37,7 +37,7 @@ body, html {
 <h3 class="w3-center">Login as Admin</h3>
   <div style="margin-top:48px">
     <br>
-    <form action="/action_page.php" target="_blank">
+    <form action="../PHP/loginAdmin.php" method="post">
       <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username"></p>
       <p><input class="w3-input w3-border" type="password" placeholder="Password" required name="password"></p>
       <p>

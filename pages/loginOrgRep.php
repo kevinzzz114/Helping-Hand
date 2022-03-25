@@ -27,7 +27,7 @@ body, html {
     <a onclick="window.location.href='index.php'" class="w3-bar-item w3-button w3-wide">HELPING HAND</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
-      <a onclick="window.location.href='loginOrgRep.php'" class="w3-bar-item w3-button">Login as Admin</a>
+      <a onclick="window.location.href='loginAdmin.php'" class="w3-bar-item w3-button">Login as Admin</a>
     </div>
   </div>
 </div>
