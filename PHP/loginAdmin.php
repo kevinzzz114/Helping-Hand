@@ -1,7 +1,5 @@
 <?php 
 
-
-
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
@@ -12,18 +10,15 @@ function validate($data){
 $username = validate($_POST['username']);
 $password = validate($_POST['password']);
 
-if ($username = "admin"&& $password = "admin"){
-    header("window.location.href='/pages/index.php'");
+
+if ($username  == "admin" && $password == "admin"){
+    header("Location: http://localhost/Helping-Hand/pages/index.php");
+    exit();
 
 }else{
-    myFunction();
-    
+    echo "<script>alert('Invalid username or password'); window.location.href='../pages/loginAdmin.php';</script>";
 }
+
 
 ?>
 
-<script type="text/javascript">
-    function myFunction() {
-        alert("Incorrect username or password");
-    }
-</script>
