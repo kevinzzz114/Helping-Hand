@@ -51,7 +51,7 @@ body, html {
     <h1 class="w3-center">Register Organization</h1>
       <div style="margin-top:48px">
         <br>
-        <form action="/action_page.php" method="post">
+        <form action="../PHP/registerOrg.php" method="post">
           <p><input class="w3-input w3-border" type="text" placeholder="Organization Name" required name="orgName"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Address" required name="address"></p>
           <p>
