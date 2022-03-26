@@ -72,6 +72,24 @@ body, html {
     </div>
 </div>
 
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+ <h1 class="w3-center">Organization Representative List</h1>
+  <div class="w3-responsive">
+    <table class="w3-table-all" id="table">
+      <tr>
+        <th>Username</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Job Title</th>
+        <th>Organization</th>
+      </tr>       
+        <?php 
+        include "../PHP/getOrgRepList2.php";
+        ?>
+    </table>
+</div>
+
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
 var mySidebar = document.getElementById("mySidebar");

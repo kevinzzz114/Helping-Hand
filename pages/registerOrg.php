@@ -47,7 +47,7 @@ body, html {
   <a onclick="window.location.href='../PHP/logout.php'" onclick="w3_close()" class="w3-bar-item w3-button"> LOGOUT</a>
 </nav>
 
-<div class="w3-container" style="padding:128px 16px" id="applicantRegister">
+<div class="w3-container" style="padding:128px 16px">
     <h1 class="w3-center">Register Organization</h1>
       <div style="margin-top:48px">
         <br>
@@ -61,7 +61,21 @@ body, html {
     </div>
 </div>
 
-
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+ <h1 class="w3-center">Organization List</h1>
+  <div class="w3-responsive">
+    <table class="w3-table-all" id="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        
+        <?php 
+        include "../PHP/getOrgList.php";
+        ?>
+    </table>
+</div>
  
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
@@ -73,11 +87,6 @@ function w3_open() {
   } else {
     mySidebar.style.display = 'block';
   }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
 }
 </script>
 
