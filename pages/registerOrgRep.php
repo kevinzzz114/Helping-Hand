@@ -85,7 +85,7 @@ body, html {
         <th>Organization</th>
       </tr>       
         <?php 
-        include "../PHP/getOrgRepList2.php";
+        include "../PHP/getOrgRepList.php";
         ?>
     </table>
 </div>
