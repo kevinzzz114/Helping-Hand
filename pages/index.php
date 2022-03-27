@@ -132,23 +132,30 @@ body, html {
 
 <!-- Register Applicant Section -->
 <div class="w3-container" style="padding:128px 16px" id="applicantRegister">
-<h3 class="w3-center">CONTACT</h3>
+<h3 class="w3-center">REGISTER AS APPLICANT</h3>
   <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
   <div style="margin-top:48px">
     <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+    <form action="../PHP/ApplicantSelfRegister.php" method="post">
+      <p><input class="w3-input w3-border" type="text" placeholder="Fullname" required name="fullname"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="email"></p>
+      <p><input class="w3-input w3-border" type="number" min=0 placeholder="Mobile Number" required name="mobileNo"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Address" required name="address"></p>
+      <p><input class="w3-input w3-border" type="number" min=0 placeholder="Household Income" required name="householdIncome"></p>
+      <p><select class="w3-input w3-border" required name="orgName">
+        <option value='' disabled selected>Select Organization</option>
+        <?php
+        include "../PHP/getOrgName.php";
+        ?>
+        </select>
+      </p>
       <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
+      <button class="w3-button w3-black" type="submit">REGISTER</button>
       </p>
     </form>
   </div>
 </div>
+
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
