@@ -15,7 +15,7 @@ if (mysqli_num_rows($result) > 0){
         echo "<td>" . $row['email'] . "</td>";
         echo "<td>" . $row['mobileNo'] . "</td>";
         echo "<td>" . $row['address'] . "</td>";
-        echo "<td>" . $row['housefoldIncome'] . "</td>";
+        echo "<td>" . $row['householdIncome'] . "</td>";
         echo "</tr>";
     }
 }else{

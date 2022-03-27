@@ -20,12 +20,10 @@ $result = mysqli_query($conn, $getOrg);
 $rows = $result->fetch_assoc();
 $orgID = $rows['orgID'];
     
-$sql = "INSERT INTO `tb_temp_applicant` (`IDno`, `email`, `fullName`, `mobileNo`, `address`, `householdIncome`, `orgID`)
-VALUES (null, '$email', '$fullname', '$mobileNo', '$address', '$householdIncome', '$orgID')";
+$sql = "INSERT INTO `tb_temp_applicant` (`IDno`, `fullName`, `email`, `mobileNo`, `address`, `householdIncome`, `orgID`)
+VALUES (null, '$fullname', '$email', '$mobileNo', '$address', '$householdIncome', '$orgID')";
 mysqli_query($conn, $sql);
 
 echo "<script>alert('You have registered successfully'); window.location.href='../pages/index.php';</script>";
-
-
 ?>
 
