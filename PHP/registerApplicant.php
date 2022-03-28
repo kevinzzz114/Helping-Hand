@@ -26,19 +26,17 @@ if (mysqli_num_rows($result) > 0){
     if (mysqli_num_rows($result2) > 0){
         echo "<script>alert('Email is already used'); window.location.href='../pages/registerApplicant.php';</script>";
     }else{
-
+        $getrow = "SELECT * FROM tb_user";
+        $result3 = mysqli_query($conn, $getrow);
+        $newusername = "user"+ (mysqli_num_rows($result2) + 1);
+        $sql2 = "INSERT INTO `tb_user` (`username`, `password`, `fullName`, `email`, `mobileNo`)
+        VALUES ('$newusername', '$newusername', '$fullname', '$email', '$mobileNo')";
+        $sql3 = "INSERT INTO `tb_user` (`username`, `IDno`, `address`, `householdIncome`, `orgID`)
+        VALUES ('$newusername', null, '$address', '$householdIncome', '$orgID')";
+        mysqli_query($conn, $sql2);
+        mysqli_query($conn, $sql3);
+        echo "<script>alert('Applicant $fullname registered successfully'); window.location.href='../pages/registerApplicant.php';</script>";
     }
 }
-
-$getOrg = "SELECT orgID FROM tb_organization WHERE orgName='$orgName'";
-$result = mysqli_query($conn, $getOrg);
-$rows = $result->fetch_assoc();
-$orgID = $rows['orgID'];
-    
-$sql = "INSERT INTO `tb_user` (`IDno`, `fullName`, `email`, `mobileNo`, `address`, `householdIncome`, `orgID`)
-VALUES (null, '$fullname', '$email', '$mobileNo', '$address', '$householdIncome', '$orgID')";
-mysqli_query($conn, $sql);
-
-echo "<script>alert('You have registered successfully'); window.location.href='../pages/index.php';</script>";
 ?>
 
