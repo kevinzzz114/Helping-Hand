@@ -132,45 +132,6 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
           </p>
         </form>
 </div>
-<!--
-<div class="w3-container" style="padding:128px 16px" id="applicantRegister">
-    <h1 class="w3-center">Register Applicant</h1>
-      <div style="margin-top:48px">
-        <br>
-        <form action="../PHP/registerApplicant.php" method="post" enctype="multipart/form-data">
-          <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username"></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Fullname" required name="fullname"></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="email"></p>
-          <p><input class="w3-input w3-border" type="number" min=0 placeholder="Mobile Number" required name="mobileNo"></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Address" required name="address"></p>
-          <p><input class="w3-input w3-border" type="number" min=0 placeholder="Household Income" required name="householdIncome"></p>
-
-          <p><input class="w3-input w3-border" type="text" placeholder="Filename" required name="filename"></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
-          <p><input class="w3-input w3-border" type="file" required name="file[]" multiple></p>
--->
-<!--         
-          <php echo count($_FILES['file']['name']); ?>
-
-
-          <p><select class="w3-input w3-border" required name="orgName">
-
-            <option value='' disabled selected>Select Organization</option>
-            <php
-            include "../PHP/getOrgName.php";
-            ?>
-            </select>
-          </p>
-
-
-          <p>
-            <button class="w3-button w3-black" type="submit">REGISTER ORGANIZATION REPRESENTATIVE</button>
-          </p>
-        </form>
-    </div>
-</div>
-
--->
  
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
