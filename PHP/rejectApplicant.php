@@ -11,6 +11,6 @@ if (mysqli_num_rows($ID) != 1){
 }else{
     $removeRequest = "DELETE FROM tb_temp_applicant WHERE IDno='$applicantID'";
     mysqli_query($conn, $removeRequest);
-    echo "<script>alert('Applicant $fullname rejected successfully'); window.location.href='../pages/registerApplicant.php';</script>";
+    echo "<script>alert('Applicant rejected successfully'); window.location.href='../pages/registerApplicant.php';</script>";
 }
 ?>
