@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
 <title>Organization Representative Page</title>
@@ -17,6 +20,10 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+table tr:not(:first-child){
+  cursor: pointer;transition: all .25s ease-in-out;
+}
+table tr:not(:first-child):hover{background-color: #a7a7a7;}
 </style>
 </head>
 <body>
@@ -86,8 +93,20 @@ body, html {
         include "../PHP/getTempApplicantList.php";
         ?>
     </table>
-</div>
+    <br>
+        <form action="../PHP/acceptApplicant.php" method="post">
+          
+          
+          <p><input class="w3-input w3-border" type="number" placeholder="ID" required name="applicantID" id="applicantID"></p>
+          
 
+          <p>
+            <button class="w3-button w3-black" type="submit">ACCEPT</button>
+            <button class="w3-button w3-red" type="submit" formaction="../PHP/rejectApplicant.php">REJECT</button>
+          </p>
+        </form>
+</div>
+<!--
 <div class="w3-container" style="padding:128px 16px" id="applicantRegister">
     <h1 class="w3-center">Register Applicant</h1>
       <div style="margin-top:48px">
@@ -103,13 +122,15 @@ body, html {
           <p><input class="w3-input w3-border" type="text" placeholder="Filename" required name="filename"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
           <p><input class="w3-input w3-border" type="file" required name="file[]" multiple></p>
-          <?php echo count($_FILES['file']['name']); ?>
+-->
+<!--         
+          <php echo count($_FILES['file']['name']); ?>
 
 
           <p><select class="w3-input w3-border" required name="orgName">
 
             <option value='' disabled selected>Select Organization</option>
-            <?php
+            <php
             include "../PHP/getOrgName.php";
             ?>
             </select>
@@ -123,7 +144,7 @@ body, html {
     </div>
 </div>
 
-
+-->
  
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
@@ -141,7 +162,18 @@ function w3_open() {
 function w3_close() {
     mySidebar.style.display = "none";
 }
+
+var table = document.getElementById('table');
+                
+for(var i = 1; i < table.rows.length; i++){
+  table.rows[i].onclick = function(){
+    document.getElementById("applicantID").value = this.cells[0].innerHTML;
+  }
+}
+
+
 </script>
+
 
 </body>
 </html>
