@@ -1,6 +1,5 @@
 <?php 
 include "config.php";
-session_start();
 
 $orgID = $_SESSION["orgID"];
 $sql = "SELECT * from (tb_user INNER JOIN tb_applicant ON tb_user.username = tb_applicant.username) WHERE orgID = $orgID";
