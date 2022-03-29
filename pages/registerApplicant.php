@@ -58,7 +58,33 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
   <a onclick="window.location.href='../PHP/logout.php'" onclick="w3_close()" class="w3-bar-item w3-button"> LOGOUT</a>
 </nav>
 
-<div class="w3-container" style="padding:128px 16px" id="applicantRegister">
+<div class="w3-container" style="padding:128px 16px">
+ <h1 class="w3-center">Applicant Request List</h1>
+  <div class="w3-responsive">
+    <table class="w3-table-all" id="table">
+      <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Address</th>
+        <th>Household Income</th>
+      </tr>       
+        <?php 
+        include "../PHP/getTempApplicantList.php";
+        ?>
+    </table>
+    <br>
+        <form action="../PHP/acceptApplicant.php" method="post">
+          <p><input class="w3-input w3-border" type="number" placeholder="ID" required name="applicantID" id="applicantID"></p>
+          <p>
+            <button class="w3-button w3-black" type="submit">ACCEPT</button>
+            <button class="w3-button w3-red" type="submit" formaction="../PHP/rejectApplicant.php">REJECT</button>
+          </p>
+        </form>
+</div>
+
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="applicantRegister">
     <h1 class="w3-center">Register Applicant</h1>
       <div style="margin-top:48px">
         <br>
@@ -77,12 +103,12 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
     </div>
 </div>
 
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
- <h1 class="w3-center">Applicant Request List</h1>
+<div class="w3-container" style="padding:128px 16px">
+ <h1 class="w3-center">Applicant List</h1>
   <div class="w3-responsive">
     <table class="w3-table-all" id="table">
       <tr>
-        <th>ID</th>
+        <th>Username</th>
         <th>Full Name</th>
         <th>Email</th>
         <th>Mobile Number</th>
@@ -90,16 +116,12 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
         <th>Household Income</th>
       </tr>       
         <?php 
-        include "../PHP/getTempApplicantList.php";
+        include "../PHP/getApplicantList.php";
         ?>
     </table>
     <br>
         <form action="../PHP/acceptApplicant.php" method="post">
-          
-          
           <p><input class="w3-input w3-border" type="number" placeholder="ID" required name="applicantID" id="applicantID"></p>
-          
-
           <p>
             <button class="w3-button w3-black" type="submit">ACCEPT</button>
             <button class="w3-button w3-red" type="submit" formaction="../PHP/rejectApplicant.php">REJECT</button>
