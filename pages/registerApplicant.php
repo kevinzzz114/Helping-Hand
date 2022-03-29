@@ -61,7 +61,7 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
 <div class="w3-container" style="padding:128px 16px">
  <h1 class="w3-center">Applicant Request List</h1>
   <div class="w3-responsive">
-    <table class="w3-table-all" id="table">
+    <table class="w3-table-all" id="requestList">
       <tr>
         <th>ID</th>
         <th>Full Name</th>
@@ -185,11 +185,19 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 
-var table = document.getElementById('table');
+var table = document.getElementById('requestList');
                 
 for(var i = 1; i < table.rows.length; i++){
   table.rows[i].onclick = function(){
     document.getElementById("applicantID").value = this.cells[0].innerHTML;
+  }
+}
+
+var table2 = document.getElementById('applicantList');
+                
+for(var i = 1; i < table2.rows.length; i++){
+  table2.rows[i].onclick = function(){
+    document.getElementById("applicantUsername").value = this.cells[0].innerHTML;
   }
 }
 
