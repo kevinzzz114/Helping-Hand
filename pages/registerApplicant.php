@@ -106,7 +106,7 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
 <div class="w3-container" style="padding:128px 16px">
  <h1 class="w3-center">Applicant List</h1>
   <div class="w3-responsive">
-    <table class="w3-table-all" id="table">
+    <table class="w3-table-all" id="applicantList">
       <tr>
         <th>Username</th>
         <th>Full Name</th>
@@ -120,11 +120,15 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
         ?>
     </table>
     <br>
-        <form action="../PHP/acceptApplicant.php" method="post">
-          <p><input class="w3-input w3-border" type="number" placeholder="ID" required name="applicantID" id="applicantID"></p>
+        <form action="../PHP/uploadDocument.php" method="post" enctype="multipart/form-data">
+          <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username" id="applicantUsername"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Filename" required name="filename">
+          <button class="w3-button w3-red" type="submit" formaction="../PHP/addMoreDoucumnet.php">Add more document</button></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="decription"></p>
+          <p><input class="w3-input w3-border" type="file" required name="file"></p>
           <p>
-            <button class="w3-button w3-black" type="submit">ACCEPT</button>
-            <button class="w3-button w3-red" type="submit" formaction="../PHP/rejectApplicant.php">REJECT</button>
+            <button class="w3-button w3-black" type="submit">UPLOAD DOCUMENT</button>
+            
           </p>
         </form>
 </div>
