@@ -1,8 +1,5 @@
 <?php 
-
 include "config.php";
-
-print_r($_SESSION);
 
 $orgID = $_SESSION["orgID"];
 $sql = "SELECT * from tb_temp_applicant WHERE orgID = $orgID";
