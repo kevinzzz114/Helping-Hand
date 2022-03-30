@@ -120,6 +120,8 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
         ?>
     </table>
     <br>
+    <p class="w3-left w3-large">Upload applicant documents</p>
+    <br>
         <form action="../PHP/uploadDocument.php" method="post" enctype="multipart/form-data">
           <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username" id="applicantUsername"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Filename" required name="filename"></p>
