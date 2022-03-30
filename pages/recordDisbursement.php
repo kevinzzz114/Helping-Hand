@@ -54,9 +54,30 @@ body, html {
   <a onclick="window.location.href='../PHP/logout.php'" onclick="w3_close()" class="w3-bar-item w3-button"> LOGOUT</a>
 </nav>
 
-
-
-
+<div class="w3-container" style="padding:128px 16px" id="appeals">
+<h2 class="w3-center"><?php $_SESSION['orgName']?> Appeals List</h2>
+  <div class="w3-row-padding">
+    <table class="w3-table-all">
+      <tr>
+        <th>Appeal ID</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Description</th>
+        <th>Outcome</th>
+      </tr>       
+        <?php 
+        include "../PHP/getOrgAppeal.php";
+        ?>
+    </table>
+    <form action="../PHP/redirectContributionApplicant.php" method="post">
+          <p><input class="w3-input w3-border" type="number" placeholder="Appeal ID" required name="appealID" id="appealID"></p>
+          <p>
+            <button class="w3-button w3-black" type="submit" name="showContribution">SHOW CONTRIBUTION</button>
+            <button class="w3-button w3-red" type="submit" name="viewApplicant">VIEW APPLICANT</button>
+          </p>
+    </form>
+  </div>
+</div>
  
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
