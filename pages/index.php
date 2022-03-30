@@ -118,15 +118,36 @@ body, html {
 
 <!-- Appeals Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px" id="appeals">
+<h2 class="w3-center">VIEW APPEALS</h2>
   <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>We know design.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
-      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
-    </div>
+  <button class="w3-button w3-black" onclick="viewAppeals()" id="btnAppeal">view past appeals</button>
+    <table class="w3-table-all" id="presentAppeal">
+      
+      <tr>
+        <th>Appeal ID</th>
+        <th>Organization</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Description</th>
+        <th>Outcome</th>
+      </tr>       
+        <?php 
+        include "../PHP/getPresentAppeals.php";
+        ?>
+    </table>
+    <table class="w3-table-all" id="pastAppeal" style="display:none">
+      <tr>
+        <th>Appeal ID</th>
+        <th>Organization</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Description</th>
+        <th>Outcome</th>
+      </tr>       
+        <?php 
+        include "../PHP/getPastAppeals.php";
+        ?>
+    </table>
   </div>
 </div>
 
@@ -195,6 +216,25 @@ function w3_open() {
 // Close the sidebar with the close button
 function w3_close() {
     mySidebar.style.display = "none";
+}
+
+var a;
+function viewAppeals()
+{
+if(a==1)
+{
+document.getElementById("pastAppeal").style.display="none";
+document.getElementById("presentAppeal").style.display="inline-table";
+document.getElementById("btnAppeal").innerText="view past appeals";
+return a=0;
+}
+else 
+{
+document.getElementById("pastAppeal").style.display="inline-table";
+document.getElementById("presentAppeal").style.display="none";
+document.getElementById("btnAppeal").innerText="view present appeals";
+return a=1;
+}
 }
 </script>
 
