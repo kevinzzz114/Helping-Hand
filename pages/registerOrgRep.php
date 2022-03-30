@@ -54,7 +54,7 @@ body, html {
         <form action="../PHP/registerOrgRep.php" method="post">
           <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Fullname" required name="fullname"></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="email"></p>
+          <p><input class="w3-input w3-border" type="email" placeholder="Email" required name="email"></p>
           <p><input class="w3-input w3-border" type="number" min=0 placeholder="Mobile Number" required name="mobileNo"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Job Title" required name="jobTitle"></p>
           <p><select class="w3-input w3-border" required name="orgName">
