@@ -122,9 +122,8 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
     <br>
         <form action="../PHP/uploadDocument.php" method="post" enctype="multipart/form-data">
           <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username" id="applicantUsername"></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Filename" required name="filename">
-          <button class="w3-button w3-red" type="submit" formaction="../PHP/addMoreDoucumnet.php">Add more document</button></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="decription"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Filename" required name="filename"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
           <p><input class="w3-input w3-border" type="file" required name="file"></p>
           <p>
             <button class="w3-button w3-black" type="submit">UPLOAD DOCUMENT</button>
