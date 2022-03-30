@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 ?>
@@ -55,6 +57,22 @@ body, html {
 </nav>
 
 
+<div class="w3-container" style="padding:128px 16px" id="addAppeal">
+    <h1 class="w3-center">Add Appeal</h1>
+      <div style="margin-top:48px">
+        <br>
+        <form action="../PHP/addAppeal.php" method="post">
+          
+          <p><input class="w3-input w3-border" type="date" placeholder="FromDate" required name="fromDate" id="FromDate"></p>
+          <p><input class="w3-input w3-border" type="date" placeholder="ToDate" required name="toDate" id="ToDate"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
+
+          <p>
+            <button class="w3-button w3-black" type="submit" >ADD APPEAL</button>
+          </p>
+        </form>
+    </div>
+</div>
 
 
  
@@ -74,6 +92,41 @@ function w3_open() {
 function w3_close() {
     mySidebar.style.display = "none";
 }
+
+
+
+// function compareDates() {
+//         //Get the text in the elements
+//         var from = document.getElementById("FromDate").textContent;
+//         var to = document.getElementById("ToDate").textContent;
+
+//         //Generate an array where the first element is the year, second is month and third is day
+//         var splitFrom = from.split('/');
+//         var splitTo = to.split('/');
+
+//         //Create a date object from the arrays
+//         var fromDate = Date.parse(splitFrom[0], splitFrom[1] - 1, splitFrom[2]);
+//         var toDate = Date.parse(splitTo[0], splitTo[1] - 1, splitTo[2]);
+
+//         //Return the result of the comparison
+//         if(fromDate > toDate){
+//           alert("The From Date cannot be bigger than To Date!")
+//         }
+//     }
+
+function compareDate(){
+
+  var startDate = $.datepicker.formatDate('dd/mm/yy', $('#FromDate').val());
+  var endDate= $.datepicker.formatDate('dd/mm/yy', $('#ToDate').val());
+            
+if (endDate < startDate) {
+    alert("To Date should be greater than From Date.");
+    $('#ToDate').focus();
+    return false;
+}
+}
+
+
 </script>
 
 </body>
