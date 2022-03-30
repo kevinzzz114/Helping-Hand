@@ -63,8 +63,8 @@ body, html {
         <br>
         <form action="../PHP/addAppeal.php" method="post">
           
-          <p><input class="w3-input w3-border" type="date" placeholder="FromDate" required name="fromDate" id="FromDate"></p>
-          <p><input class="w3-input w3-border" type="date" placeholder="ToDate" required name="toDate" id="ToDate"></p>
+          <p><input class="w3-input w3-border" type="date" placeholder="FromDate" required name="fromDate" id="StartDate"></p>
+          <p><input class="w3-input w3-border" type="date" placeholder="ToDate" required name="toDate" id="EndDate"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
 
           <p>
@@ -93,38 +93,6 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 
-
-
-// function compareDates() {
-//         //Get the text in the elements
-//         var from = document.getElementById("FromDate").textContent;
-//         var to = document.getElementById("ToDate").textContent;
-
-//         //Generate an array where the first element is the year, second is month and third is day
-//         var splitFrom = from.split('/');
-//         var splitTo = to.split('/');
-
-//         //Create a date object from the arrays
-//         var fromDate = Date.parse(splitFrom[0], splitFrom[1] - 1, splitFrom[2]);
-//         var toDate = Date.parse(splitTo[0], splitTo[1] - 1, splitTo[2]);
-
-//         //Return the result of the comparison
-//         if(fromDate > toDate){
-//           alert("The From Date cannot be bigger than To Date!")
-//         }
-//     }
-
-function compareDate(){
-
-  var startDate = $.datepicker.formatDate('dd/mm/yy', $('#FromDate').val());
-  var endDate= $.datepicker.formatDate('dd/mm/yy', $('#ToDate').val());
-            
-if (endDate < startDate) {
-    alert("To Date should be greater than From Date.");
-    $('#ToDate').focus();
-    return false;
-}
-}
 
 
 </script>

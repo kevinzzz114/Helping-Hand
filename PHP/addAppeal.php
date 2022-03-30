@@ -14,14 +14,19 @@ $fromDate = validate($_POST['fromDate']);
 $toDate = validate($_POST['toDate']);
 $description = validate($_POST['description']);
 
-
-$sql = "INSERT INTO `tb_appeal` (`appealID`,`fromDate`,`toDate`, `description`, `orgID`) 
+if(strtotime($fromDate) > strtotime($toDate)){
+    echo "<script>alert('Start date must not be bigger than End date, Retry again!'); window.location.href='../pages/addAppeal.php';</script>";
+}else{
+    
+    $sql = "INSERT INTO `tb_appeal` (`appealID`,`fromDate`,`toDate`, `description`, `orgID`) 
         VALUES (NULL, '$fromDate', '$toDate', '$description', $orgID)";
 
-mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql);
 
 
-echo "<script>alert('Appeal added successfully'); window.location.href='../pages/addAppeal.php';</script>";
+    echo "<script>alert('Appeal added successfully'); window.location.href='../pages/addAppeal.php';</script>";
+
+}
 
 
 
