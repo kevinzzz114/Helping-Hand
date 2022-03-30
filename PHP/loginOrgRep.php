@@ -22,12 +22,14 @@ if (mysqli_num_rows($result) === 1){
     
     if ($row['username'] === $username && $row['password'] === $password) {
 
-        $getOrg = "SELECT orgID FROM tb_organization_rep WHERE username='$username'";
+        $getOrg = "SELECT * FROM (tb_organization_rep INNER JOIN tb_organization ON tb_organization_rep.orgID=tb_organization.orgID)
+        WHERE username='$username'";
         $org = mysqli_query($conn, $getOrg);
         $orgID = mysqli_fetch_assoc($org);
             
         $_SESSION['username'] = $row['username'];
         $_SESSION['orgID'] = $orgID['orgID'];
+        $_SESSION['orgName'] = $orgID['orgName'];
 
         header("Location: http://localhost/Helping-Hand/pages/registerApplicant.php");
         exit();
