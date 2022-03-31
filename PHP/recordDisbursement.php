@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0){
     VALUES ('$ID', '$date', '$cashAmount', '$goodsDisbursed', '$appealID')";    
     mysqli_query($conn, $sql);
 
-    $sql2 = "UPDATE `tb_appeal` SET `outcome`='$outcome'";
+    $sql2 = "UPDATE `tb_appeal` SET `outcome`='$outcome' WHERE appealID = $appealID";
     mysqli_query($conn, $sql2);
     echo "<script>alert('Disbursement recorded successfully'); window.location.href='../pages/recordDisbursement2.php';</script>";
 }
