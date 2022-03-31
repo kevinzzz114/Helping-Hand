@@ -74,7 +74,23 @@ body, html {
     </div>
 </div>
 
-
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="appealTable">
+<h2 class="w3-center"><?php $orgName = $_SESSION['orgName'];?> List of Appeals</h2>
+  <div class="w3-row-padding">
+    <table class="w3-table-all">
+      <tr>
+        <th>Appeal ID</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Description</th>
+        <th>Outcome</th>
+      </tr>       
+        <?php 
+        include "../PHP/getAllAppeal.php";
+        ?>
+    </table>
+  </div>
+</div>
  
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
