@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <html>
 <head>
@@ -57,30 +56,35 @@ body, html {
 
 
 <div class="w3-container" style="padding:128px 16px" id="appeals">
-<h2 class="w3-center"><?php $orgName = $_SESSION['orgName']; echo $orgName?> Appeal Lists</h2>
-  <div class="w3-row-padding">
-    <table class="w3-table-all">
-      <tr>
-        <th>Appeal ID</th>
-        <th>From Date</th>
-        <th>To Date</th>
-        <th>Description</th>
-        <th>Outcome</th>
-      </tr>       
-        <?php 
-        include "../PHP/getOrgAppeal.php";
-        ?>
-    </table>
-    <form action="../PHP/retriveAppealData.php" method="post">
-          <p><input class="w3-input w3-border" type="number" placeholder="Appeal ID" required name="appealID" id="appealID"></p>
+<h2 class="w3-center"><?php $orgName = $_SESSION['orgName'];?>Record Goods</h2>
+<div style="margin-top:48px">
+        <br>
+        <form action="../PHP/recordGoods.php" method="post">
+          <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
+          <p><input class="w3-input w3-border" type="number" min=0 placeholder="Estimated Value" required name="estimatedValue"></p>
           <p>
-            <button class="w3-button w3-black" type="submit" name="enter">ENTER</button>
+            <button class="w3-button w3-black" type="submit">RECORD GOODS</button>
           </p>
-    </form>
+        </form>
   </div>
 </div>
 
- 
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="applicantRegister">
+    <h2 class="w3-center"><?php $orgName = $_SESSION['orgName'];?>Record Cash Donation</h2>
+      <div style="margin-top:48px">
+        <br>
+        <form action="../PHP/recordCash.php" method="post">
+          <p><input class="w3-input w3-border" type="number" min=0 placeholder="Amount" required name="amount"></p>
+          <p><input class="w3-input w3-border" type="text" placeholder="PaymentChannel" required name="paymentChannel"></p>
+          <p><input class="w3-input w3-border" type="number" min=0 placeholder="ReferenceNo" required name="referenceNo"></p>
+          <p>
+            <button class="w3-button w3-black" type="submit">RECORD CASH DONATION</button>
+          </p>
+        </form>
+    </div>
+</div>
+
+
 <script>
 // Toggle between showing and hiding the sidebar when clicking the menu icon
 var mySidebar = document.getElementById("mySidebar");
