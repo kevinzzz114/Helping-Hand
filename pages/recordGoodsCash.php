@@ -55,7 +55,7 @@ body, html {
 </nav>
 
 
-<div class="w3-container" style="padding:128px 16px" id="appeals">
+<div class="w3-container" style="padding:128px 16px" id="recordGoods">
 <h2 class="w3-center"><?php $orgName = $_SESSION['orgName'];?>Record Goods</h2>
 <div style="margin-top:48px">
         <br>
@@ -69,7 +69,7 @@ body, html {
   </div>
 </div>
 
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="applicantRegister">
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="recordCash">
     <h2 class="w3-center"><?php $orgName = $_SESSION['orgName'];?>Record Cash Donation</h2>
       <div style="margin-top:48px">
         <br>
