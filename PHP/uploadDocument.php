@@ -37,8 +37,4 @@ if (mysqli_num_rows($result) != 1){
 
     echo "<script>alert('$username document uploaded successfully'); window.location.href='../pages/registerApplicant.php';</script>";
 }
-
-
-
-
 ?>
