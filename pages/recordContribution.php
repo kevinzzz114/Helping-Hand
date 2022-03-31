@@ -21,6 +21,14 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+
+
+#appealTable, table tr:not(:first-child){
+  cursor: pointer;transition: all .25s ease-in-out;
+}
+#appealTable, table tr:not(:first-child):hover{background-color: #a7a7a7;}
+
+
 </style>
 </head>
 <body>
@@ -59,7 +67,7 @@ body, html {
 <div class="w3-container" style="padding:128px 16px" id="appeals">
 <h2 class="w3-center"><?php $orgName = $_SESSION['orgName']; echo $orgName?> Appeal Lists</h2>
   <div class="w3-row-padding">
-    <table class="w3-table-all">
+    <table class="w3-table-all" id=appealTable>
       <tr>
         <th>Appeal ID</th>
         <th>From Date</th>
@@ -91,11 +99,28 @@ body, html {
         <th>Description</th>
       </tr>       
         <?php 
-        include "../PHP/getGoods.php";
+        include "../PHP/getContriGoods.php";
         ?>
     </table>
   </div>
+</div>
 
+<div class="w3-container " style="padding:128px 16px" id="CashTable">
+<h2 class="w3-center"><?php $orgName = $_SESSION['orgName'];?> List of Cash Donations</h2>
+  <div class="w3-row-padding">
+    <table class="w3-table-all">
+      <tr>
+        <th>Contribution ID</th>
+        <th>Received Date</th>
+        <th>Amount(RM)</th>
+        <th>Payment Channel</th>
+        <th>Reference No</th>
+      </tr>       
+        <?php 
+        include "../PHP/getContriCash.php";
+        ?>
+    </table>
+  </div>
 </div>
 
  
@@ -116,13 +141,15 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 
-function visible() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
+
+var table = document.getElementById('appealTable');
+                
+for(var i = 1; i < table.rows.length; i++){
+  table.rows[i].onclick = function(){
+    document.getElementById("appealID").value = this.cells[0].innerHTML;
   }
+}
+
 </script>
 
 </body>

@@ -37,7 +37,7 @@ mysqli_query($conn, $sql2);
 echo "<script>alert('Goods recorded successfully'); window.location.href='../pages/recordContribution.php';</script>";
 
 
-}
+
 
 
 ?>
