@@ -57,31 +57,31 @@ body, html {
 <div class="w3-container" style="padding:128px 16px">
 <h2 class="w3-center">Applicant List</h2>
   <div class="w3-row-padding">
-    
+    <br>
+    <p class="w3-left w3-large">Cash Donation</p>
+    <br>
     <table class="w3-table-all" id="applicantList">
       <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Full Name</th>
-        <th>Email</th>
-        <th>Mobile Number</th>
-        <th>Address</th>
-        <th>Household Income</th>
+        <th>Contribution ID</th>
+        <th>Received Date</th>
+        <th>Amount</th>
+        <th>Payment Channel</th>
+        <th>Reference Number</th>
       </tr>       
         <?php 
-        include "../PHP/getApplicantList.php";
+        include "../PHP/getCashDonation.php";
         ?>
     </table>
     <br>
     <form action="../PHP/viewDocument.php" method="post">
-        <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username"id="ID2"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username"id="username2"></p>
         <p>
           <button class="w3-button w3-black" type="submit">VIEW DOCUMENT</button>
         </p>
     </form>
     <form action="../PHP/recordDisbursement.php" method="post">
-        <p><input class="w3-input w3-border" type="number" placeholder="Applicant ID" required name="ID" id="ID1"></p>
-        <p><input class="w3-input w3-border" type="date" placeholder="Disbursement Date" required name="disbursementDate"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username" id="username1"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Disbursement Date" required name="disbursementDate"></p>
         <p><input class="w3-input w3-border" type="number" placeholder="Cash Amount" required name="cashAmount"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Goods Disbursed" required name="goodsDisbursed"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Outcome of Appeal" required name="outcome"></p>
@@ -115,8 +115,8 @@ var table2 = document.getElementById('applicantList');
                 
 for(var i = 1; i < table2.rows.length; i++){
   table2.rows[i].onclick = function(){
-    document.getElementById("ID1").value = this.cells[0].innerHTML;
-    document.getElementById("ID2").value = this.cells[0].innerHTML;
+    document.getElementById("username1").value = this.cells[0].innerHTML;
+    document.getElementById("username2").value = this.cells[0].innerHTML;
   }
 }
 
