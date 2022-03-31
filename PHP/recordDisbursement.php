@@ -30,4 +30,3 @@ if (mysqli_num_rows($result) > 0){
     echo "<script>alert('Disbursement recorded successfully'); window.location.href='../pages/recordDisbursement2.php';</script>";
 }
 ?>
-
