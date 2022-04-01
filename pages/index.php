@@ -159,7 +159,7 @@ body, html {
     <br>
     <form action="../PHP/ApplicantSelfRegister.php" method="post">
       <p><input class="w3-input w3-border" type="text" placeholder="Fullname" required name="fullname"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="email"></p>
+      <p><input class="w3-input w3-border" type="email" placeholder="Email" required name="email"></p>
       <p><input class="w3-input w3-border" type="number" min=0 placeholder="Mobile Number" required name="mobileNo"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Address" required name="address"></p>
       <p><input class="w3-input w3-border" type="number" min=0 placeholder="Household Income" required name="householdIncome"></p>
