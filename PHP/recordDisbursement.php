@@ -18,7 +18,7 @@ $outcome = validate($_POST['outcome']);
 
 $checkID = "SELECT * FROM tb_applicant WHERE IDno='$ID'";
 $result = mysqli_query($conn, $checkID);
-if (mysqli_num_rows($result) > 0){
+if (mysqli_num_rows($result) < 1){
     echo "<script>alert('Invalid applicant ID'); window.location.href='../pages/recordDisbursement2.php';</script>";
 }else{
     $sql = "INSERT INTO `tb_disbursement` (`IDno`, `disbursementDate`, `cashAmount`, `goodsDisbursed`, `appealID`)
@@ -30,4 +30,3 @@ if (mysqli_num_rows($result) > 0){
     echo "<script>alert('Disbursement recorded successfully'); window.location.href='../pages/recordDisbursement2.php';</script>";
 }
 ?>
-
