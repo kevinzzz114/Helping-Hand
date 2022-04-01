@@ -77,7 +77,7 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
           <p><input class="w3-input w3-border" type="number" placeholder="Appeal ID" required name="appealID" id="ID"></p>
           <p>
             <button class="w3-button w3-black" type="submit" name="showContribution">SHOW CONTRIBUTION</button>
-            <button class="w3-button w3-red" type="submit" name="viewApplicant">VIEW APPLICANT</button>
+            <button class="w3-button w3-black" type="submit" name="viewApplicant">VIEW APPLICANT</button>
           </p>
     </form>
   </div>
