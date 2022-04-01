@@ -7,6 +7,7 @@ $result = $conn-> query($sql);
 if (mysqli_num_rows($result) > 0){
     while ($row= $result-> fetch_assoc()){
         echo "<tr>";
+        echo "<td>" . $row['IDno'] . "</td>";
         echo "<td>" . $row['username'] . "</td>";        
         echo "<td>" . $row['fullName'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
