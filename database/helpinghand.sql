@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 03:32 PM
+-- Generation Time: Apr 01, 2022 at 10:45 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -36,6 +36,23 @@ CREATE TABLE `tb_appeal` (
   `orgID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_appeal`
+--
+
+INSERT INTO `tb_appeal` (`appealID`, `fromDate`, `toDate`, `description`, `outcome`, `orgID`) VALUES
+(1, '2022-03-27', '2022-04-10', 'food', '', 1),
+(2, '2022-03-27', '2022-04-03', 'food', '', 1),
+(3, '2022-02-01', '2022-03-18', 'cash', '', 1),
+(4, '2022-03-02', '2022-04-22', 'cash', '', 1),
+(5, '2022-04-01', '2022-04-15', 'food', '', 1),
+(6, '2022-03-27', '2022-04-03', 'food', '', 2),
+(7, '2022-03-28', '2022-04-11', 'cash', '', 2),
+(8, '2022-03-27', '2022-04-03', 'food', '', 3),
+(9, '2022-04-03', '2022-04-10', 'cash', '', 3),
+(10, '2022-03-20', '2022-03-27', 'cash', '', 3),
+(11, '2022-03-01', '2022-03-15', 'cash', '', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +67,16 @@ CREATE TABLE `tb_applicant` (
   `orgID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_applicant`
+--
+
+INSERT INTO `tb_applicant` (`username`, `IDno`, `address`, `householdIncome`, `orgID`) VALUES
+('user6', 1, 'bandar utama', '400.00', 1),
+('user7', 2, 'bandar utama', '450.00', 1),
+('user8', 3, 'kota damansara', '600.00', 1),
+('user9', 4, 'sea park', '400.00', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +90,14 @@ CREATE TABLE `tb_cash_donation` (
   `referenceNo` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_cash_donation`
+--
+
+INSERT INTO `tb_cash_donation` (`contributionID`, `amount`, `paymentChannel`, `referenceNo`) VALUES
+(2, '400.00', 'online banking', 2147483647),
+(4, '600.00', 'online transfer', 2147483647);
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +109,17 @@ CREATE TABLE `tb_contribution` (
   `receivedDate` date NOT NULL,
   `appealID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_contribution`
+--
+
+INSERT INTO `tb_contribution` (`contributionID`, `receivedDate`, `appealID`) VALUES
+(1, '2022-04-01', 4),
+(2, '2022-04-01', 4),
+(3, '2022-04-01', 5),
+(4, '2022-04-01', 4),
+(5, '2022-04-01', 3);
 
 -- --------------------------------------------------------
 
@@ -102,6 +148,15 @@ CREATE TABLE `tb_document` (
   `description` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_document`
+--
+
+INSERT INTO `tb_document` (`IDno`, `documentID`, `filename`, `description`) VALUES
+(1, 4, 'demo 2', 'demo 2'),
+(1, 5, 'demo 3', 'demo 3'),
+(1, 6, 'test', 'test');
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +168,15 @@ CREATE TABLE `tb_goods` (
   `description` varchar(50) NOT NULL,
   `estimatedValue` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_goods`
+--
+
+INSERT INTO `tb_goods` (`contributionID`, `description`, `estimatedValue`) VALUES
+(1, 'rice', 100),
+(3, 'rice', 80),
+(5, 'fruits', 50);
 
 -- --------------------------------------------------------
 
@@ -131,9 +195,9 @@ CREATE TABLE `tb_organization` (
 --
 
 INSERT INTO `tb_organization` (`orgID`, `orgName`, `address`) VALUES
-(1, 'OrgA', 'AddressA'),
-(2, 'OrgB', 'AddressB'),
-(3, 'OrgC', 'AddressC');
+(1, 'OrgA', 'address A'),
+(2, 'OrgB', 'address B'),
+(3, 'OrgC', 'address C');
 
 -- --------------------------------------------------------
 
@@ -152,10 +216,11 @@ CREATE TABLE `tb_organization_rep` (
 --
 
 INSERT INTO `tb_organization_rep` (`username`, `jobTitle`, `orgID`) VALUES
-('a', 'a', 1),
-('aa', 'aa', 2),
-('b', 'b', 3),
-('test', 'test', 2);
+('Arep1', 'manager', 1),
+('Arep2', 'receptionist', 1),
+('Arep3', 'receptionist', 1),
+('Brep1', 'manager', 2),
+('Crep1', 'manager', 3);
 
 -- --------------------------------------------------------
 
@@ -178,13 +243,9 @@ CREATE TABLE `tb_temp_applicant` (
 --
 
 INSERT INTO `tb_temp_applicant` (`IDno`, `fullName`, `mobileNo`, `email`, `address`, `householdIncome`, `orgID`) VALUES
-(2, '0', '000000000000011', 'aa', 'aa', '11', 1),
-(3, '0', '000000000000022', 'bb', 'bb', '22', 1),
-(4, 'cc', '000000000000033', 'cc', 'cc', '33', 1),
-(5, 'f', '000000000000123', 'f', 'f', '43', 1),
-(6, 'hh', '000000000000091', 'hh', 'rr', '87', 1),
-(7, 'gg', '000000000000789', 'gg', 'gg', '789', 1),
-(8, 'ff', '009988', 'ff', 'ff', '9988', 1);
+(1, 'adam', '01378997789', 'adam@gmail.com', 'bandar utama', '300', 1),
+(2, 'bryan', '01434343356', 'bryan@gmail.com', 'desa park', '700', 1),
+(3, 'kevin', '01874889989', 'kevin@gmail.com', 'sea park', '300', 2);
 
 -- --------------------------------------------------------
 
@@ -205,10 +266,15 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`username`, `password`, `fullName`, `email`, `mobileNo`) VALUES
-('a', 'password123', 'a', 'a', '000000000000001'),
-('aa', 'password123', 'aa', 'aa', '000000000000001'),
-('b', 'password123', 'b', 'b', '000000000000005'),
-('test', 'password123', 'test', 'test', '000000000000003');
+('Arep1', 'password123', 'micheal', 'micheal@gmail.com', '01137559978'),
+('Arep2', 'password123', 'claire', 'claire@gmail.com', '01364992255'),
+('Arep3', 'password123', 'rex', 'rex@gmail.com', '01267887773'),
+('Brep1', 'password123', 'matthew', 'matthew@gmail.com', '01131239978'),
+('Crep1', 'password123', 'william', 'william@gmail.com', '0168769870'),
+('user6', 'user6', 'sam', 'sam@gmail.com', '0192657345'),
+('user7', 'user7', 'ross', 'ross@gmail.com', '0128796876'),
+('user8', 'user8', 'ryan', 'ryan@gmail.com', '01189887732'),
+('user9', 'user9', 'jenny', 'jenny@gmail.com', '01723114423');
 
 --
 -- Indexes for dumped tables
@@ -296,25 +362,25 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_appeal`
 --
 ALTER TABLE `tb_appeal`
-  MODIFY `appealID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `appealID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_applicant`
 --
 ALTER TABLE `tb_applicant`
-  MODIFY `IDno` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDno` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_contribution`
 --
 ALTER TABLE `tb_contribution`
-  MODIFY `contributionID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `contributionID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_document`
 --
 ALTER TABLE `tb_document`
-  MODIFY `documentID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `documentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_organization`
@@ -326,7 +392,7 @@ ALTER TABLE `tb_organization`
 -- AUTO_INCREMENT for table `tb_temp_applicant`
 --
 ALTER TABLE `tb_temp_applicant`
-  MODIFY `IDno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `IDno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -374,7 +440,7 @@ ALTER TABLE `tb_document`
 -- Constraints for table `tb_goods`
 --
 ALTER TABLE `tb_goods`
-  ADD CONSTRAINT `fk_to_contribution` FOREIGN KEY (`contributionID`) REFERENCES `tb_contribution` (`contributionID`);
+  ADD CONSTRAINT `fk_to_contribution` FOREIGN KEY (`contributionID`) REFERENCES `tb_contribution` (`contributionID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `tb_organization_rep`
