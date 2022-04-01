@@ -108,6 +108,7 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
   <div class="w3-responsive">
     <table class="w3-table-all" id="applicantList">
       <tr>
+        <th>Applicant ID</th>
         <th>Username</th>
         <th>Full Name</th>
         <th>Email</th>
@@ -123,7 +124,7 @@ table tr:not(:first-child):hover{background-color: #a7a7a7;}
     <p class="w3-left w3-large">Upload applicant documents</p>
     <br>
         <form action="../PHP/uploadDocument.php" method="post" enctype="multipart/form-data">
-          <p><input class="w3-input w3-border" type="text" placeholder="Username" required name="username" id="applicantUsername"></p>
+          <p><input class="w3-input w3-border" type="number" placeholder="Applicant ID" required name="ID" id="ID"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Filename" required name="filename"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
           <p><input class="w3-input w3-border" type="file" required name="file"></p>
@@ -163,7 +164,7 @@ var table2 = document.getElementById('applicantList');
                 
 for(var i = 1; i < table2.rows.length; i++){
   table2.rows[i].onclick = function(){
-    document.getElementById("applicantUsername").value = this.cells[0].innerHTML;
+    document.getElementById("ID").value = this.cells[0].innerHTML;
   }
 }
 
