@@ -13,7 +13,7 @@ function validate($data){
 
 $appealID = validate($_POST['appealID']);
 
-$check = "SELECT * FROM tb_appeal WHERE appealID ='$appealID' AND orgID = '$orgID'";
+$check = "SELECT * FROM tb_appeal WHERE appealID ='$appealID' AND orgID = '$orgID' AND toDate >= CAST(CURRENT_TIMESTAMP AS DATE)";
 $result = mysqli_query($conn, $check);
 
 if (mysqli_num_rows($result) != 1){
