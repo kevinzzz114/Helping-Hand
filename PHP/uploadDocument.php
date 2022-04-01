@@ -9,14 +9,14 @@ function validate($data){
     return $data;
 }
 
-$username = validate($_POST['username']);
+$ID = validate($_POST['ID']);
 $filename = validate($_POST['filename']);
 $description = validate($_POST['description']);
 
-$checkEmail = "SELECT * FROM tb_applicant WHERE username='$username'";
-$result = mysqli_query($conn, $checkEmail);
+$checkID = "SELECT * FROM tb_applicant WHERE IDno='$ID'";
+$result = mysqli_query($conn, $checkID);
 if (mysqli_num_rows($result) != 1){
-    echo "<script>alert('Invald username'); window.location.href='../pages/registerApplicant.php';</script>";
+    echo "<script>alert('Invalid Applicant ID'); window.location.href='../pages/registerApplicant.php';</script>";
 }else{
     $row= $result-> fetch_assoc();
     $ID = $row['IDno'];
@@ -35,7 +35,7 @@ if (mysqli_num_rows($result) != 1){
     VALUES ('$ID', null, '$filename', '$description')";
     mysqli_query($conn, $sql);
 
-    echo "<script>alert('$username document uploaded successfully'); window.location.href='../pages/registerApplicant.php';</script>";
+    echo "<script>alert('document uploaded successfully'); window.location.href='../pages/registerApplicant.php';</script>";
 }
 
 
