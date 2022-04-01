@@ -87,8 +87,8 @@ body, html {
         ?>
     </table>
     <p>
-        <button class="w3-button w3-black" onclick="window.location.href='recordContribution.php'">BACK</button>
-        <button class="w3-button w3-black" onclick="window.location.href='disbursement.php'">VIEW APPLICANT</button>
+        <button class="w3-button w3-black" onclick="window.location.href='recordDisbursement.php'">BACK</button>
+        <button class="w3-button w3-black" onclick="window.location.href='recordDisbursement2.php'">VIEW APPLICANT</button>
     </p>
   </div>
 </div>
