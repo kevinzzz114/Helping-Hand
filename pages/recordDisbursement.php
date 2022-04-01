@@ -20,6 +20,10 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+table tr:not(:first-child){
+  cursor: pointer;transition: all .25s ease-in-out;
+}
+table tr:not(:first-child):hover{background-color: #a7a7a7;}
 </style>
 </head>
 <body>
@@ -55,9 +59,9 @@ body, html {
 </nav>
 
 <div class="w3-container" style="padding:128px 16px" id="appeals">
-<h2 class="w3-center"><?php $_SESSION['orgName']?> Appeals List</h2>
+<h2 class="w3-center"><?php echo $_SESSION['orgName']?> Appeals List</h2>
   <div class="w3-row-padding">
-    <table class="w3-table-all">
+    <table class="w3-table-all" id="appealList">
       <tr>
         <th>Appeal ID</th>
         <th>From Date</th>
@@ -70,7 +74,7 @@ body, html {
         ?>
     </table>
     <form action="../PHP/redirectContributionApplicant.php" method="post">
-          <p><input class="w3-input w3-border" type="number" placeholder="Appeal ID" required name="appealID" id="appealID"></p>
+          <p><input class="w3-input w3-border" type="number" placeholder="Appeal ID" required name="appealID" id="ID"></p>
           <p>
             <button class="w3-button w3-black" type="submit" name="showContribution">SHOW CONTRIBUTION</button>
             <button class="w3-button w3-red" type="submit" name="viewApplicant">VIEW APPLICANT</button>
@@ -94,6 +98,14 @@ function w3_open() {
 // Close the sidebar with the close button
 function w3_close() {
     mySidebar.style.display = "none";
+}
+
+var table = document.getElementById('appealList');
+                
+for(var i = 1; i < table.rows.length; i++){
+  table.rows[i].onclick = function(){
+    document.getElementById("ID").value = this.cells[0].innerHTML;
+  }
 }
 </script>
 
