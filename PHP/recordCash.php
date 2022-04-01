@@ -28,8 +28,6 @@ $result = mysqli_query($conn, $getContributionID);
 $rows = $result->fetch_assoc();
 $contributionID = $rows['contributionID'];
 
-
-
 $sql2 = "INSERT INTO `tb_cash_donation` (`contributionID`, `amount`, `paymentChannel`, `referenceNo`)
 VALUES ('$contributionID', '$amount', '$paymentChannel','$referenceNo')";
 mysqli_query($conn, $sql2);

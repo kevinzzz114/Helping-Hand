@@ -56,17 +56,15 @@ body, html {
   <a onclick="window.location.href='../PHP/logout.php'" onclick="w3_close()" class="w3-bar-item w3-button"> LOGOUT</a>
 </nav>
 
-
+<!--To add Appeal-->
 <div class="w3-container" style="padding:128px 16px" id="addAppeal">
     <h1 class="w3-center">Add Appeal</h1>
       <div style="margin-top:48px">
         <br>
         <form action="../PHP/addAppeal.php" method="post">
-          
           <p><input class="w3-input w3-border" type="date" placeholder="FromDate" required name="fromDate" id="StartDate"></p>
           <p><input class="w3-input w3-border" type="date" placeholder="ToDate" required name="toDate" id="EndDate"></p>
           <p><input class="w3-input w3-border" type="text" placeholder="Description" required name="description"></p>
-
           <p>
             <button class="w3-button w3-black" type="submit" >ADD APPEAL</button>
           </p>
