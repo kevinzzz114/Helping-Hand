@@ -20,6 +20,7 @@ if (mysqli_num_rows($result) != 1){
 }else{
     $row= $result-> fetch_assoc();
     $ID = $row['IDno'];
+    $username = $row['username'];
 
     $file = $_FILES['file'];
     $fileName = $_FILES['file']['name'];
